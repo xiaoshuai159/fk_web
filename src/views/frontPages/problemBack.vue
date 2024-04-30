@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="background-color: #ffffff; height: 40px; line-height: 54px; position: absolute; width: 100%">
+    <!-- <div style="background-color: #ffffff; height: 40px; line-height: 54px; position: absolute; width: 100%">
       <el-row>
         <el-col :span="3"></el-col>
         <el-col :span="21">
@@ -10,8 +10,8 @@
           当前位置：首页 > <span style="color: #5d9fff">问题或意见反馈</span>
         </el-col>
       </el-row>
-    </div>
-    <el-row style="background-color: #ffffff; padding: 10px 0; margin-top: 40px">
+    </div> -->
+    <el-row style="background-color: #ffffff; padding: 10px 0">
       <el-col :span="3"></el-col>
       <el-col :span="18">
         <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
@@ -21,7 +21,7 @@
                 ><span style="border-bottom: 5px solid #00b9ef">我要</span><span style="color: #4fbaf0">反馈</span>
               </div>
               <img src="src/assets/image/f2.png" alt="Description of the image" width="10%" style="display: block; margin: 0 auto" />
-              <div style="height: 60px; margin-bottom: 20px; line-height: 28px; margin: 20px 0px; text-indent: 2em; font-size: 18px">
+              <div style="height: 60px; margin-bottom: 20px; line-height: 36px; margin: 20px 0px; text-indent: 2em; font-size: 18px">
                 为了及时发现和优化转换系统存在的协议转换异常，访问延迟、网络丢包、网站无法打开等问题，特开设留言反馈系统，
                 记录您在访问过程中遇到的问题，期待各位用户能够积极参与，详细填写，留下您的宝贵意见，以便促进本系统的建设优化，
                 提升网站服务质量。
