@@ -143,7 +143,8 @@
     searchClick2()
   })
   const searchClick2 = async () => {
-    const { data: res } = await service.get('/ManageApi/v1/search')
+    // const { data: res } = await service.get('/ManageApi/v1/search')
+    const { data: res } = await service.get('/api/v1/search')
     tableData.value = res.data
   }
   let tableData = ref([])
@@ -244,7 +245,8 @@
     const formData = new FormData()
     formData.append('q_id', curId)
     formData.append('status', curStatus)
-    const { data: res } = await service.post('/ManageApi/v1/update_status', formData)
+    // const { data: res } = await service.post('/ManageApi/v1/update_status', formData)
+    const { data: res } = await service.post('/api/v1/update_status', formData)
     console.log(res)
 
     if (res.code == 200) {

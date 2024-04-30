@@ -7,6 +7,7 @@ export const useTagsViewStore = defineStore({
   // state: 返回对象的函数
   state: () => ({
     activeTabsValue: '/home',
+    // activeTabsValue: '/frontPages/problemBack',
     visitedViews: [],
     cachedViews: [],
   }),
@@ -93,7 +94,9 @@ export const useTagsViewStore = defineStore({
     },
     goHome() {
       this.activeTabsValue = '/home'
+      // this.activeTabsValue = '/frontPages/problemBack'
       router.push({ path: '/home' })
+      // router.push({ path: '/frontPages/problemBack' })
     },
     updateVisitedView(view) {
       for (let v of this.visitedViews) {

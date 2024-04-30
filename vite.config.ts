@@ -76,26 +76,27 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           changeOrigin: true,
           // rewrite: path => path.replace(/^\/api/, "")
         },
-        '/ManageApi': {
-          target: 'http://172.19.19.142:5001/', // easymock
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/ManageApi/, '/api'),
-        },
+        //   '/ManageApi': {
+        //     target: 'http://172.19.19.142:5001/', // easymock
+        //     changeOrigin: true,
+        //     rewrite: (path) => path.replace(/^\/ManageApi/, '/api'),
+        //   },
+        // },
       },
-    },
-    // 生产环境打包配置
-    //去除 console debugger
-    // esbuild: {
-    //   pure:mode==='production' ? ["console.log", "debugger"] : []
-    // },
+      // 生产环境打包配置
+      //去除 console debugger
+      // esbuild: {
+      //   pure:mode==='production' ? ["console.log", "debugger"] : []
+      // },
 
-    // build: {
-    //   terserOptions: {
-    //     compress: {
-    //       drop_console: true,
-    //       drop_debugger: true,
-    //     },
-    //   },
-    // },
+      // build: {
+      //   terserOptions: {
+      //     compress: {
+      //       drop_console: true,
+      //       drop_debugger: true,
+      //     },
+      //   },
+      // },
+    },
   }
 })

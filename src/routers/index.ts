@@ -39,35 +39,35 @@ export const constantRoutes: Array<RouteRecordRaw & extendRoute> = [
     component: () => import('@/views/errorPages/403.vue'),
     hidden: true,
   },
-  {
-    path: '/home',
-    name: 'layout',
-    component: Layout,
-    redirect: '/home',
-    meta: { title: '首页', icon: 'Odometer' },
-    children: [
-      {
-        path: '/home',
-        component: () => import('@/views/panel/index.vue'),
-        name: 'home',
-        meta: { title: '首页', icon: 'Odometer', breadcrumb: false, role: ['other'] },
-      },
-    ],
-  },
+  // {
+  //   path: '/home',
+  //   name: 'layout',
+  //   component: Layout,
+  //   redirect: '/home',
+  //   meta: { title: '首页', icon: 'Odometer' },
+  //   children: [
+  //     {
+  //       path: '/home',
+  //       component: () => import('@/views/panel/index.vue'),
+  //       name: 'home',
+  //       meta: { title: '首页', icon: 'Odometer', breadcrumb: false, role: ['other'] },
+  //     },
+  //   ],
+  // },
   {
     path: '/',
     name: 'frontPages',
     component: () => import('@/views/frontPages/index.vue'),
     hidden: true,
     children: [
+      // {
+      //   path: '',
+      //   component: () => import('@/views/frontPages/problemList.vue'),
+      //   name: 'problemList',
+      //   // meta: { title: '首页', icon: 'Odometer', breadcrumb: false, role: ['other'] },
+      // },
       {
         path: '',
-        component: () => import('@/views/frontPages/problemList.vue'),
-        name: 'problemList',
-        // meta: { title: '首页', icon: 'Odometer', breadcrumb: false, role: ['other'] },
-      },
-      {
-        path: '/frontPages/problemBack',
         component: () => import('@/views/frontPages/problemBack.vue'),
         name: 'problemBack',
         // meta: { title: '首页', icon: 'Odometer', breadcrumb: false, role: ['other'] },

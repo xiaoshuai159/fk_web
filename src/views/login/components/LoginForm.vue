@@ -126,6 +126,7 @@
             await UserStore.login(ruleForm)
             await router.push({
               path: '/home',
+              // path: 'frontPages/problemBack',
             })
             ElNotification({
               title: getTimeStateStr(),

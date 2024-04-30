@@ -1,17 +1,17 @@
 <template>
   <el-breadcrumb class="app-breadcrumb" separator="/">
     <transition-group name="breadcrumb">
-      <el-breadcrumb-item v-if="showHome" key="home" :to="{ path: '/' }">
+      <!-- <el-breadcrumb-item v-if="showHome" key="home" :to="{ path: '/' }">
         <div class="breadcrumb-item">
           <span class="breadcrumb-title">首页</span>
         </div>
-      </el-breadcrumb-item>
-      <el-breadcrumb-item v-for="(item, index) in matchedWithSession" :key="item.name">
+      </el-breadcrumb-item> -->
+      <!-- <el-breadcrumb-item v-for="(item, index) in matchedWithSession" :key="item.name">
         <span v-if="item.redirect === 'noRedirect' || index == matchedWithSession.length - 1" class="no-redirect">{{
           item.meta.title
         }}</span>
         <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
-      </el-breadcrumb-item>
+      </el-breadcrumb-item> -->
     </transition-group>
   </el-breadcrumb>
 </template>

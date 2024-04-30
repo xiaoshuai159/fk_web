@@ -109,14 +109,16 @@
   let ydllq = ref('30')
   let webllq = ref('20')
   const getHeaderData = async () => {
-    const { data: res } = await service.get('/ManageApi/v1/get_dashboard_header')
+    // const { data: res } = await service.get('/ManageApi/v1/get_dashboard_header')
+    const { data: res } = await service.get('/api/v1/get_dashboard_header')
     yjj.value = res.data.question_resolved
     wjj.value = res.data.question_unresolved
     ydllq.value = res.data.mobile_num
     webllq.value = res.data.web_num
   }
   const getLineData = async () => {
-    const { data: res } = await service.get('/ManageApi/v1/get_dashboard_trend')
+    // const { data: res } = await service.get('/ManageApi/v1/get_dashboard_trend')
+    const { data: res } = await service.get('/api/v1/get_dashboard_trend')
     console.log(res.data)
     // 按日期从小到大排序
     res.data.sort((a, b) => dayjs(a.date).diff(dayjs(b.date)))
@@ -126,7 +128,8 @@
     drawOnlyLine(dates, nums)
   }
   const getTop5Data = async () => {
-    const { data: res } = await service.get('/ManageApi/v1/get_dashboard_types')
+    // const { data: res } = await service.get('/ManageApi/v1/get_dashboard_types')
+    const { data: res } = await service.get('/api/v1/get_dashboard_types')
     let result = []
     // 遍历对象的键值对
     for (const [key, value] of Object.entries(res.data)) {

@@ -23,7 +23,9 @@ export const useUserStore = defineStore({
       formData.append('passwd', passwd)
       // formData.append('vcode', captcha)
       return new Promise(async (resolve, reject) => {
-        const { data: res } = await service.post('/ManageApi/v1/login_in', formData)
+        // const { data: res } = await service.post('/ManageApi/v1/login_in', formData) // 部署关掉代理直接访问 /api/v1/login_in
+        // const { data: res } = await service.post(/api/v1/login_in', formData)
+        const { data: res } = await service.post('/api/v1/login_in', formData)
         if (res.code == 200) {
           this.token = res.token
           this.userInfo = res.data
