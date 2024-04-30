@@ -6,7 +6,7 @@
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
         <!-- <img src="@/assets/image/logo.png" class="sidebar-logo" /> -->
-        <h1 class="sidebar-title">虚拟货币全链条监测平台</h1>
+        <h1 class="sidebar-title">问题反馈系统</h1>
       </router-link>
     </transition>
   </div>
@@ -48,7 +48,7 @@
         color: #fff;
         font-weight: 600;
         line-height: 50px;
-        font-size: 16px;
+        font-size: 20px;
         vertical-align: middle;
       }
     }

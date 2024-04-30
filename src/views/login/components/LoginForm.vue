@@ -1,6 +1,6 @@
 <template>
   <div class="login-title">
-    <h2 class="title">虚拟货币全链条监测平台</h2>
+    <h2 class="title">问题反馈系统</h2>
   </div>
   <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules">
     <el-form-item label="" prop="username">
@@ -36,7 +36,7 @@
       </el-input>
     </el-form-item>
     <!-- 添加验证码输入框 -->
-    <el-form-item label="" prop="captcha">
+    <!-- <el-form-item label="" prop="captcha">
       <el-input
         v-model="ruleForm.captcha"
         placeholder="请输入验证码"
@@ -51,7 +51,7 @@
           <img :src="getCaptchaImgUrl()" alt="验证码" class="captcha-input__img" @click="refreshCaptcha" />
         </template>
       </el-input>
-    </el-form-item>
+    </el-form-item> -->
 
     <el-form-item style="width: 100%">
       <el-button :loading="loading" class="login-btn" type="primary" @click="submitForm(ruleFormRef)">登录</el-button>
@@ -76,34 +76,44 @@
   const rules = reactive({
     passwd: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
     username: [{ required: true, message: '请输入密码', trigger: 'blur' }],
-    captcha: [{ required: true, message: '请输入验证码', trigger: 'blur' }],
+    // captcha: [{ required: true, message: '请输入验证码', trigger: 'blur' }],
   })
 
   // 表单数据
   const ruleForm = reactive({
     username: '',
     passwd: '',
-    captcha: '',
+    // captcha: '',
   })
-  let captchaImgUrl = ref('/api/v1/verify_code?time' + new Date())
-  const getCaptchaImgUrl = () => {
-    return captchaImgUrl.value
-  }
-  const refreshCaptcha = () => {
-    fetchNewCaptchaImage()
-  }
-  const fetchNewCaptchaImage = () => {
-    setTimeout(() => {
-      console.log(new Date().toLocaleString())
-      captchaImgUrl.value = '/api/v1/verify_code?time' + new Date().toLocaleString()
-    }, 300)
-  }
+  // 验证码 start -----------------
+  // let captchaImgUrl = ref('/api/v1/verify_code?time' + new Date())
+  // const getCaptchaImgUrl = () => {
+  //   return captchaImgUrl.value
+  // }
+  // const refreshCaptcha = () => {
+  //   fetchNewCaptchaImage()
+  // }
+  // const fetchNewCaptchaImage = () => {
+  //   setTimeout(() => {
+  //     console.log(new Date().toLocaleString())
+  //     captchaImgUrl.value = '/api/v1/verify_code?time' + new Date().toLocaleString()
+  //   }, 300)
+  // }
+  // 验证码 end -----------------
   // 显示密码图标
   const showPwd = () => {
     passwordType.value = passwordType.value === 'password' ? '' : 'password'
   }
 
   const submitForm = (formEl: FormInstance | undefined) => {
+    // if(ruleForm.username == 'admin'){
+    //   router.push("/home")
+    //   return
+    // }else {
+    //   router.push("/")
+    //   return
+    // }
+
     if (!formEl) return
     formEl.validate((valid) => {
       console.log(valid)
@@ -115,7 +125,7 @@
           try {
             await UserStore.login(ruleForm)
             await router.push({
-              path: '/',
+              path: '/home',
             })
             ElNotification({
               title: getTimeStateStr(),

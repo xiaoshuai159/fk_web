@@ -6,9 +6,9 @@
     </el-button>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item @click="refresh"
+        <!-- <el-dropdown-item @click="refresh"
           ><el-icon :size="14"><Refresh /></el-icon> 刷新当页</el-dropdown-item
-        >
+        > -->
         <el-dropdown-item @click="closeCurrentTab"
           ><el-icon :size="14"><FolderRemove /></el-icon> 关闭当前</el-dropdown-item
         >

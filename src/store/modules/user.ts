@@ -17,13 +17,13 @@ export const useUserStore = defineStore({
   actions: {
     // 登录
     async login(userInfo) {
-      const { username, passwd, captcha } = userInfo
+      const { username, passwd } = userInfo
       const formData = new FormData()
       formData.append('username', username)
       formData.append('passwd', passwd)
-      formData.append('vcode', captcha)
+      // formData.append('vcode', captcha)
       return new Promise(async (resolve, reject) => {
-        const { data: res } = await service.post('/api/v1/login_in', formData)
+        const { data: res } = await service.post('/ManageApi/v1/login_in', formData)
         if (res.code == 200) {
           this.token = res.token
           this.userInfo = res.data

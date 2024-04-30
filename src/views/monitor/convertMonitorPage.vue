@@ -183,7 +183,6 @@
     }
     echarts.dispose(document.getElementById('myPieChart1'))
     const pie_chart1 = echarts.init(document.getElementById('myPieChart1'))
-    // let pie_chart = this.$echarts.init(this.$refs.myPieChart1)
     let option = {
       title: {
         subtext: '买入币种占比',

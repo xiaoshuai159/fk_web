@@ -48,7 +48,7 @@ service.interceptors.response.use(
       // 这里你可以使用路由进行页面跳转，或者其他逻辑处理
       // 例如使用 element-plus 的 Message 组件显示提示信息
       ElMessage.error('Token 失效，请重新登录')
-      await userStore.logout()
+      // await userStore.logout()
       await router.push({ path: '/login' })
       TagsViewStore.clearVisitedView()
       PermissionStore.clearRoutes()
@@ -69,7 +69,7 @@ service.interceptors.response.use(
       // 这里你可以使用路由进行页面跳转，或者其他逻辑处理
       // 例如使用 element-plus 的 Message 组件显示提示信息
       ElMessage.error('Token 失效，请重新登录')
-      await userStore.logout()
+      // await userStore.logout()
       await router.push({ path: '/login' })
       TagsViewStore.clearVisitedView()
       PermissionStore.clearRoutes()

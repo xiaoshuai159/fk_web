@@ -15,10 +15,10 @@
         <el-dropdown-item :command="0" divided @click="switchRolesAction('other')">
           {{ currentRoles === 'other' ? '当前角色' : '切换角色' }}：普通用户
         </el-dropdown-item> -->
-        <!-- <el-dropdown-item :command="0" @click="modifyPassword">
-          <el-icon><Edit /></el-icon>修改密码
-        </el-dropdown-item> -->
-        <el-dropdown-item :command="0" @click="logOut">
+        <el-dropdown-item :command="0" @click="toFront">
+          <el-icon><House /></el-icon>返回前台
+        </el-dropdown-item>
+        <el-dropdown-item :command="0" divided @click="logOut">
           <el-icon><SwitchButton /></el-icon>退出登录
         </el-dropdown-item>
       </el-dropdown-menu>
@@ -75,8 +75,9 @@
       type: 'warning',
     })
       .then(async () => {
-        await UserStore.logout()
         await router.push({ path: '/login' })
+        await UserStore.logout()
+
         TagsViewStore.clearVisitedView()
         PermissionStore.clearRoutes()
         ElMessage({
@@ -88,6 +89,9 @@
   }
   const modifyPassword = () => {
     person.value.show()
+  }
+  const toFront = () => {
+    router.push('/')
   }
 </script>
 

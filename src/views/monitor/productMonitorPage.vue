@@ -177,7 +177,6 @@
   import dayjs from 'dayjs'
   import { onMounted } from 'vue'
   import * as echarts from 'echarts'
-  import axios from 'axios'
 
   const getPastDate = (days) => {
     const today = new Date()

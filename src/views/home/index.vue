@@ -114,7 +114,7 @@
               >
             </el-card>
             <el-card style="flex: 1; cursor: pointer" class="card-item" @click="goTo('https://github.com/zouzhibin/vue-admin-perfect')">
-              <div style="color: white; margin-bottom: 10px"><h3>虚拟货币全链条监测平台</h3></div>
+              <div style="color: white; margin-bottom: 10px"><h3>问题反馈系统</h3></div>
               <div style="font-size: 12px; color: white">系统基于vue3+vuex+ element-plus+ts后台管理系统</div>
             </el-card>
           </div>
