@@ -20,8 +20,8 @@
               <div style="font-size: 24px; font-weight: 600; margin: 10px 0px"
                 ><span style="border-bottom: 5px solid #00b9ef">我要</span><span style="color: #4fbaf0">反馈</span>
               </div>
-              <img src="src/assets/image/f2.png" alt="Description of the image" width="10%" style="display: block; margin: 0 auto" />
-              <div style="height: 60px; margin-bottom: 20px; line-height: 36px; margin: 20px 0px; text-indent: 2em; font-size: 18px">
+              <img src="@/assets/image/f2.png" alt="Description of the image" width="10%" style="display: block; margin: 0 auto" />
+              <div style="height: auto; margin-bottom: 20px; line-height: 36px; margin: 20px 0px; text-indent: 2em; font-size: 18px">
                 为了及时发现和优化转换系统存在的协议转换异常，访问延迟、网络丢包、网站无法打开等问题，特开设留言反馈系统，
                 记录您在访问过程中遇到的问题，期待各位用户能够积极参与，详细填写，留下您的宝贵意见，以便促进本系统的建设优化，
                 提升网站服务质量。
@@ -91,19 +91,13 @@
                       <el-input v-model="ruleForm.lxfs" />
                     </el-form-item>
                     <!-- 添加验证码输入框 -->
-                    <!-- <el-form-item label="" prop="captcha">
-                      <el-input v-model="ruleForm.captcha" placeholder="请输入验证码" auto-complete="off"
-                        style="position: relative" @keyup.enter="submitForm(ruleFormRef)">
-                        <template #prefix>
-                          <el-icon class="el-input__icon">
-                            <PictureFilled />
-                          </el-icon>
-                        </template>
+                    <el-form-item label="验证码" prop="captcha">
+                      <el-input v-model="ruleForm.captcha">
                         <template #suffix>
                           <img :src="getCaptchaImgUrl()" alt="验证码" class="captcha-input__img" @click="refreshCaptcha" />
                         </template>
                       </el-input>
-                    </el-form-item> -->
+                    </el-form-item>
                     <el-form-item>
                       <div style="transform: translateX(140%)">
                         <el-button type="primary" @click="submitForm(ruleFormRef)"> 提交 </el-button>
@@ -128,7 +122,21 @@
   import router from '@/routers'
   import type { TabsPaneContext } from 'element-plus'
   import type { ComponentSize, FormInstance, FormRules } from 'element-plus'
-
+  // 验证码 start -----------------
+  let captchaImgUrl = ref('/api/v1/verify_code?time' + new Date())
+  const getCaptchaImgUrl = () => {
+    return captchaImgUrl.value
+  }
+  const refreshCaptcha = () => {
+    fetchNewCaptchaImage()
+  }
+  const fetchNewCaptchaImage = () => {
+    setTimeout(() => {
+      console.log(new Date().toLocaleString())
+      captchaImgUrl.value = '/api/v1/verify_code?time' + new Date().toLocaleString()
+    }, 300)
+  }
+  // 验证码 end -----------------
   const activeName = ref('first')
   const handleClick = (tab: TabsPaneContext, event: Event) => {
     console.log(tab, event)
@@ -217,6 +225,7 @@
     czxt: [{ required: true, message: '请选择', trigger: 'change' }],
     llqlx: [{ required: true, message: '请选择', trigger: 'change' }],
     wtfl: [{ required: true, message: '请选择', trigger: 'change' }],
+    captcha: [{ required: true, message: '请选择', trigger: 'change' }],
   })
 
   const submitForm = async (formEl: FormInstance | undefined) => {
@@ -256,7 +265,7 @@
     formData.append('q_type', ruleForm.wtfl)
     formData.append('name', ruleForm.xm)
     formData.append('contact_info', ruleForm.lxfs)
-
+    formData.append('captcha', ruleForm.captcha)
     // 将图片文件数据装入 FormData 对象
     if (ruleForm.images[0]) {
       formData.append('img_1', ruleForm.images[0].raw)
