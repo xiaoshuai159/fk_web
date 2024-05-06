@@ -46,6 +46,7 @@
       <el-col :span="22">
         <div class="tableClass">
           <el-table
+            v-loading="loading"
             :data="tableData.slice((pagination.currentPage - 1) * pagination.pageSize, pagination.currentPage * pagination.pageSize)"
             style="width: 100%"
             @selection-change="handleSelectionChange"
@@ -118,6 +119,7 @@
   import { ref, reactive, Ref, onMounted } from 'vue'
   import service from '@/api/request'
   import { ElMessage } from 'element-plus'
+  let loading = ref(false)
   let dialogVisible = ref(false)
   let ztDialogVisible = ref(false)
   const ztInput = ref('')
@@ -143,9 +145,11 @@
     searchClick2()
   })
   const searchClick2 = async () => {
+    loading.value = true
     // const { data: res } = await service.get('/ManageApi/v1/search')
     const { data: res } = await service.get('/api/v1/search')
     tableData.value = res.data
+    loading.value = false
   }
   let tableData = ref([])
   const pagination = reactive({
@@ -204,6 +208,7 @@
   }
 
   const searchClick = async () => {
+    loading.value = true
     const queryData = {
       value: curPhone.value,
       exchange: ztInput.value,
@@ -215,7 +220,7 @@
     if (res.code == 200) {
       tableData.value = res.data
       console.log(res.data[0].img_1)
-
+      loading.value = false
       // clztOptions.value = Array.from(new Set(res.data.map((item) => item.chain))).map((chain) => ({ label: chain, value: chain }))
       // dzOptions.value = Array.from(new Set(res.data.map(item=>item.address))).map(address=>({label:address,value:address}))
     }

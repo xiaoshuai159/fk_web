@@ -16,8 +16,8 @@
       网站使用问题反馈
     </div>
     <!-- <el-header class="me-area">      
-      <el-row class="me-header">
-        <el-col :span="4" class="me-header-left"></el-col>
+      <el-row class="me-header"> -->
+    <!-- <el-col :span="4" class="me-header-left"></el-col>
         <el-col :span="16">
           <el-menu
             :router="true"
@@ -30,38 +30,33 @@
             <el-menu-item index="/">首页</el-menu-item>
             <el-menu-item index="/">问题反馈</el-menu-item>
           </el-menu>
-        </el-col>
-        <el-col :span="4">
+        </el-col> <el-col :span="4">
           <el-menu
             :router="true"
             menu-trigger="click"
             mode="horizontal"
             active-text-color="#5FB878"
             style="line-height: 60px; height: 60px"
-          > -->
-    <!-- <template v-if="true">
+          >
+    <template v-if="true">
               <el-menu-item index="/login">
                 <el-button link type="primary">后台</el-button>
               </el-menu-item>
-            </template> -->
-    <!-- <template v-if="!user.login">
+            </template><template v-if="!user.login">
               <el-menu-item index="/login">
                 <el-button link type="primary">登录</el-button>
               </el-menu-item>
               <el-menu-item index="/register">
                 <el-button type="text">注册</el-button>
               </el-menu-item>
-            </template> -->
-    <!-- <el-submenu index>
-                <template slot="title">
+            </template> <el-submenu index>
+  <template slot="title">
                   <img class="me-header-picture" :src="user.avatar" />
                 </template>
-                <el-menu-item index @click="logout">退出</el-menu-item>
-              </el-submenu> -->
-    <!-- </el-menu>
-        </el-col>
-      </el-row>
-    </el-header> -->
+  <el-menu-item index @click="logout">退出</el-menu-item>
+</el-submenu> </el-menu>
+</el-col> </el-row>
+</el-header> -->
     <div class="app-container" style="padding: 0">
       <router-view></router-view>
     </div>

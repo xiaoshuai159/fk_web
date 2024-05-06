@@ -84,9 +84,9 @@
                     <el-form-item label="问题分类" prop="wtfl">
                       <el-select-v2 v-model="ruleForm.wtfl" :options="wtflOptions" />
                     </el-form-item>
-                    <el-form-item label="姓名" prop="xm">
+                    <!-- <el-form-item label="姓名" prop="xm">
                       <el-input v-model="ruleForm.xm" />
-                    </el-form-item>
+                    </el-form-item> -->
                     <el-form-item label="联系方式" prop="lxfs">
                       <el-input v-model="ruleForm.lxfs" />
                     </el-form-item>

@@ -39,21 +39,21 @@ export const constantRoutes: Array<RouteRecordRaw & extendRoute> = [
     component: () => import('@/views/errorPages/403.vue'),
     hidden: true,
   },
-  // {
-  //   path: '/home',
-  //   name: 'layout',
-  //   component: Layout,
-  //   redirect: '/home',
-  //   meta: { title: '首页', icon: 'Odometer' },
-  //   children: [
-  //     {
-  //       path: '/home',
-  //       component: () => import('@/views/panel/index.vue'),
-  //       name: 'home',
-  //       meta: { title: '首页', icon: 'Odometer', breadcrumb: false, role: ['other'] },
-  //     },
-  //   ],
-  // },
+  {
+    path: '/home',
+    name: 'layout',
+    component: Layout,
+    redirect: '/home',
+    meta: { title: '首页', icon: 'Odometer' },
+    children: [
+      {
+        path: '/home',
+        component: () => import('@/views/panel/index.vue'),
+        name: 'home',
+        meta: { title: '首页', icon: 'Odometer', breadcrumb: false, role: ['other'] },
+      },
+    ],
+  },
   {
     path: '/',
     name: 'frontPages',
